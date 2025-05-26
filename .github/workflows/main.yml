@@ -1,3 +1,10 @@
+name: Daily Telegram Bot Push
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 每天早上 9:00 (UTC+8)
+  workflow_dispatch:
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
