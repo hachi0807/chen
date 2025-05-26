@@ -22,6 +22,8 @@ jobs:
         run: |
           pip install requests python-dotenv
 
-      - name: Run script
-        run: python3 depin_telegram_bot_update/main.py
+- name: Run script
+  run: python3 main.py
+  working-directory: depin_telegram_bot_update
+
 
