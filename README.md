@@ -1,0 +1,25 @@
+name: Daily Telegram Bot Push
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 每天早上 9:00 (UTC+8)
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests python-dotenv
+
+      - name: Run script
+        run: python3 chen/depin_telegram_bot_update/main.py
